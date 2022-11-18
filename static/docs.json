@@ -1,0 +1,88 @@
+{
+    "swagger": "2.0",
+    "info":{
+      "description": "All API Documentaion",
+      "version": "",
+      "title": "ENGAGE API"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "host": "localhost:5000",
+    "basePath": "/",
+    "tags":[{
+      "name": "API",
+      "description": "Details About API"
+    }],
+    "schemes":["http"],
+    "paths":{
+      "/hello":{
+        "get":{
+          "tags":["API"],
+          "summary": "Checking Local Host started or not",
+          "responses":{
+            "200":{
+              "description": "hello"
+            },
+            "404":{
+              "description": "Invalid URL Page not found"
+            }
+          }}},
+      "/mongo":{
+        "post":
+        {
+          "tags":["API"],
+          "summary": "Update key and value in database",
+          "parameters":[{
+              "in": "body",
+              "name": "Input",
+              "schema": {
+                "$ref" : "#/definitions/Mongo"
+              }}],
+          "responses":{
+            "200":{
+              "description": "result:Updated success,status_code:200"
+            },
+            "404":{
+              "description": "result:NO Operation,status_code:400"
+            }
+          }
+        }
+      }
+    },
+    "definitions":{
+      "Mongo":{
+        "type": "object",
+        "properties":{
+          "type_of_app":{
+            "type" : "string"
+          },
+          "collection_details" :{
+            "type" : "string"
+          },
+          "key_value_to_find" :{
+            "type": "string"
+          },
+          "name_key_find":{
+              "type":"string"
+          },
+          "environment" :{
+            "type": "string"
+          },
+          "Operation_type":{
+            "type": "string"
+          },
+          "data" :{
+            "type": "object",
+            "properties":{
+              "name_of_key_in_database":{
+                "type": "string",
+                "description": "the value should be in String"
+              }}}
+            }
+          }
+        }
+      }
+            
+              
